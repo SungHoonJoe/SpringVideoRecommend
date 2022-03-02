@@ -26,10 +26,11 @@
 	     	<input type="text" class="form-control mt-3" placeholder="작품 출시일" id="releasedateInput">
 	     	<input type="text" class="form-control mt-3" placeholder="작품 평점" id="gradeInput">
 	     	<input type="text" class="form-control mt-3" placeholder="작품 예고편 링크" id="videoPathInput">
+	     	<div class="mt-2 d-flex justify-content-between">
 	     	<input type="file" class="mt-3" id="fileInput">
+	     	<button type="button" class="btn btn-success btn-sm" id="saveBtn">저장</button>
+	     	</div>
 	     	
-	     	 
-	     	  <button type="button" class="btn btn-success" id="saveBtn">저장</button>
 	     	
 	     	
 			</div>

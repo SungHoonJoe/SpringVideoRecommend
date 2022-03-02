@@ -39,7 +39,7 @@
 	    `user`
 	WHERE
 	      `loginId` = #{loginId}
-	      AND 'password` = #{password}
+	      AND `password` = #{password}
 	</select>
 	
 	<select id="selectCountId" resultType="int" parameterType="string" >
