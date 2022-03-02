@@ -1,6 +1,7 @@
 package com.honftel.project.user.bo;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Service;
 
 import com.honftel.project.common.EncryptUtils;

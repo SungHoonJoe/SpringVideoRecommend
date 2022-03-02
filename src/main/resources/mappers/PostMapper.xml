@@ -4,10 +4,42 @@
 
 <mapper namespace="com.honftel.project.post.dao.PostDAO">
 
-<insert>
+	<insert id="insertPost" parameterType="map">
+	   INSERT INTO `post` 
+		(
+		    
+			`userId`
+			,`userName`
+			,`subject`
+			,`genre`
+			,`content`
+			,`broadcastdays`
+			,`releasedate`
+			,`grade`
+			,`imagePath`
+			,`videoPath`
+			, `createdAt`
+			, `updatedAt`
+		) VALUES (
+			#{userId}
+			,#{userName}
+			,#{subject}
+			,#{genre}
+			,#{content}
+			,#{broadcastdays}
+			,#{releasedate}
+			,#{grade}
+			,#{imagePath}
+			,#{videoPath}
+			, now()
+			, now()
+		)
+	   
 
 
-</insert>
+	</insert>
+	
+	
 
 
 </mapper>

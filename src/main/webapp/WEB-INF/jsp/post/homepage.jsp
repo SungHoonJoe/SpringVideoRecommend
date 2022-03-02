@@ -14,7 +14,7 @@
   	
   	<link rel="stylesheet" href="/static/css/style.css">
   	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-	<title>마론달그램</title>
+	<title>홈 화면</title>
 </head>
 <body>
 

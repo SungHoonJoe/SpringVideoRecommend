@@ -29,10 +29,11 @@ public class PostController {
 		HttpSession session = request.getSession();
 		int userId  = (Integer) session.getAttribute("userId");
 		//List<PostDetail> postList = postBO.getPostList(userId);
+		List<Post> postList = postBO.getPostList(userId);
 		
 		
 		
-		//model.addAttribute("postList",postList);
+		model.addAttribute("postList",postList);
 		return "post/homepage";
 	}
 	
@@ -47,7 +48,7 @@ public class PostController {
 		//id 로 셀렉트
 		
 		//Post post = postBO.getPost(postId);
-		model.addAttribute("post", post);
+		//model.addAttribute("post", post);
 		
 		
 		return "post/detailView";

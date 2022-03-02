@@ -1,6 +1,12 @@
 package com.honftel.project.post.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
+
+import com.honftel.project.post.model.Post;
+
+
 
 public interface PostDAO {
 	
@@ -16,5 +22,7 @@ public interface PostDAO {
 			@Param("imagePath") String imagePath,
 			@Param("videoPath") String videoPath
 			);
+	
+	public List<Post> selectPostList();
 
 }

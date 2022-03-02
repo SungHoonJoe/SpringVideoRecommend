@@ -103,8 +103,8 @@
 					}
 					
 				$.ajax({
-					type: post,
-					url: /user/sign_up,
+					type: "post",
+					url: "/user/sign_up",
 					data:{"loginId":loginId, "password":password, "name":name, "email":email},
 					success:function(data){
 					
