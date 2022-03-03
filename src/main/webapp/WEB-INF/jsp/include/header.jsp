@@ -8,8 +8,8 @@
 	  </div>
 	<%-- 세션에 userId 값이 존재하는지?  --%>
 	<div class="input-group mb-3">
-		<input type="text" class="form-control"
-			placeholder="Recipient's username" aria-label="내용을 입력해 주세요"
+		<input type="text" class="form-control w-6"
+			placeholder="내용을 입력해 주세요" 
 			aria-describedby="basic-addon2">
 		<div class="input-group-append">
 			<span class="input-group-text" id="basic-addon2">검색</span>

@@ -28,7 +28,7 @@ public class PostBO {
 		return postDAO.insertPost(userId, userName, subject, genre, content, broadcastdays, releasedate, grade, filePath, videoPath);
 	}
 	
-	public List<Post> getPostList(int userId) {
+	public List<Post> getPostList() {
 		// post 리스트 가져오기
 		// post 대응하는 댓글 좋아요 가져오기
 		// post 대응하는 댓글 좋아요 데이터 구조 만들기

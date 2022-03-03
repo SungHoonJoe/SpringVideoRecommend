@@ -39,6 +39,29 @@
 
 	</insert>
 	
+	<select id="selectPostList"  resultType="com.honftel.project.post.model.Post">
+	   SELECT
+	         `id`
+	         ,`userId`
+			,`userName`
+			,`subject`
+			,`genre`
+			,`content`
+			,`broadcastdays`
+			,`releasedate`
+			,`grade`
+			,`imagePath`
+			,`videoPath`
+			, `createdAt`
+			, `updatedAt`
+      FROM 
+          `post`
+      
+	         
+	
+	
+	</select>
+	
 	
 
 

@@ -21,18 +21,20 @@
 	<div id="wrap">
 		<c:import url="/WEB-INF/jsp/include/header.jsp" />
 		<section class="d-flex justify-content-center">
-		<div class="display-4">평점순</div>
+		<div>
+		<div class="display-4 ">평점순</div>
+		<div class="d-flex justidy-content-between">
 		<c:forEach var="postDetail" items="${postList }">
 		
-		<div>
-		<img src="${postDetail.imagePath }" class="w-100">
+		<div >
+		<img src="${postDetail.imagePath }" width="100" height="150">
 		<a href="">${postDetail.subject }</a>
-		
 		</div>
-	
-		
 		
 		</c:forEach>
+		</div>
+		</div>
+		
 		</section>
 		<c:import url="/WEB-INF/jsp/include/footer.jsp" />
 	</div>

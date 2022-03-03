@@ -29,7 +29,7 @@ public class PostController {
 		HttpSession session = request.getSession();
 		int userId  = (Integer) session.getAttribute("userId");
 		//List<PostDetail> postList = postBO.getPostList(userId);
-		List<Post> postList = postBO.getPostList(userId);
+		List<Post> postList = postBO.getPostList();
 		
 		
 		
