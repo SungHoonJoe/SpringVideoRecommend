@@ -22,38 +22,39 @@
 		<c:import url="/WEB-INF/jsp/include/header.jsp" />
 		<section class="  ">
 		
-		<div class="display-4 ">최신순</div>
+			<div class="display-4 ">최신순</div>
 		
-		<div class="d-flex justify-content-between mt-3 showcontents scrollbar   " >
-		<c:forEach var="postDetail" items="${postList }">
+			<div class="d-flex justify-content-between mt-3 showcontents scrollbar " >
+			<c:forEach var="postDetail" items="${postList }" end="6">
 		
-		<div class="page m-3  " >  <!-- page 부분 width:180px 임에도 검사하면 앞쪽만 132.39로 잡히고 뒤쪽은 120으로 잡힌다 m-3로 일시적인 해결은 했으나... -->
-		<div class="h-75">
-		<a href="/post/detail_view?postId=${postDetail.id}"><img src="${postDetail.imagePath }" width="120" height="150"></a>
-		</div>
-		<div class="h-25">
-		<a class="d-flex justify-content-center mt-3 break" href="/post/detail_view?postId=${postDetail.id}">${postDetail.subject }</a>
-		</div>
-		</div>
+				<div class="page  " >  <!-- page 부분 width:180px 임에도 검사하면 앞쪽만 132.39로 잡히고 뒤쪽은 120으로 잡힌다 m-3로 일시적인 해결은 했으나... -->
+					<div class="w-100 h-75">
+						<a href="/post/detail_view?postId=${postDetail.id}"><img src="${postDetail.imagePath }" width="120" height="150"></a>
+					</div>
+					<div class="">
+						<a class="" href="/post/detail_view?postId=${postDetail.id}">${postDetail.subject }</a>
+					</div>
+				</div>
 		
-		</c:forEach>
-		</div>
+			</c:forEach>
+			</div>
 		
 		<div class="display-4 ">평점순</div>
 		
-		<div class="d-flex justify-content-between mt-3 showcontents scrollbar   " >
-		<c:forEach var="postDetail" items="${postList }">
+		<div class="d-flex justify-content-between mt-3 showcontents scrollbar " >
+			<c:forEach var="postDetail" items="${postList }" end="6">
 		
-		<div class="page m-3 " >  <!-- page 부분 width:180px 임에도 검사하면 앞쪽만 132.39로 잡히고 뒤쪽은 120으로 잡힌다 m-3로 일시적인 해결은 했으나... -->
-		<div class="d-flex justify-content-center">
-		<a href="/post/detail_view?postId=${postDetail.id}"><img src="${postDetail.imagePath }" width="120" height="150"></a>
-		</div>
-		<a class="d-flex justify-content-center mt-3" href="/post/detail_view?postId=${postDetail.id}">${postDetail.subject }</a>
+				<div class="page  " >  <!-- page 부분 width:180px 임에도 검사하면 앞쪽만 132.39로 잡히고 뒤쪽은 120으로 잡힌다 m-3로 일시적인 해결은 했으나... -->
+					<div class="w-100 h-75">
+						<a href="/post/detail_view?postId=${postDetail.id}"><img src="${postDetail.imagePath }" width="120" height="150"></a>
+					</div>
+					<div class="">
+						<a class="" href="/post/detail_view?postId=${postDetail.id}">${postDetail.subject }</a>
+					</div>
+				</div>
 		
-		</div>
-		
-		</c:forEach>
-		</div>
+			</c:forEach>
+			</div>
 		
 		</section>
 		<c:import url="/WEB-INF/jsp/include/footer.jsp" />
