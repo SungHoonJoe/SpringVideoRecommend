@@ -47,12 +47,14 @@ public class PostController {
 	public String detailView(@RequestParam("postId") int postId,Model model) {
 		//id 로 셀렉트
 		
-		//Post post = postBO.getPost(postId);
-		//model.addAttribute("post", post);
+		Post post = postBO.getPost(postId);
+		model.addAttribute("post", post);
 		
 		
 		return "post/detailView";
 	}
+	
+	
 
 
 }

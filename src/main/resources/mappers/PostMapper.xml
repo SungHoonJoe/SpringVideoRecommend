@@ -56,8 +56,33 @@
 			, `updatedAt`
       FROM 
           `post`
-      
+      ORDER BY
+              `id`
+      DESC
 	         
+	
+	
+	</select>
+	
+	<select id="selectPost" parameterType="int" resultType="com.honftel.project.post.model.Post">
+	SELECT
+	         `id`
+	         ,`userId`
+			,`userName`
+			,`subject`
+			,`genre`
+			,`content`
+			,`broadcastdays`
+			,`releasedate`
+			,`grade`
+			,`imagePath`
+			,`videoPath`
+			, `createdAt`
+			, `updatedAt`
+      FROM 
+          `post`
+      WHERE
+           `id` = #{postId}
 	
 	
 	</select>

@@ -7,9 +7,25 @@
 	
 	
 }
+a{
+	color:black;
+}
+a:hover{
+	color:black;
+	text-decoration:none;
+}
+
+.break{
+	word-break: break-all;
+}
 
 header {
 	height:40px;
+}
+
+.showcontents{
+	height:250px;
+	width:1200px;
 }
 
 .signup-box{
@@ -27,6 +43,25 @@ header {
 
 footer {
 	height:50px;
+}
+
+.scrollbar{
+	white-space:nowrap;
+    overflow-x:auto;
+	
+}
+
+.page{
+	width: 150px;
+	height: 200px;
+}
+
+.content{
+	height: 100px;
+}
+
+.interval{
+	height: 50px;
 }
 
 

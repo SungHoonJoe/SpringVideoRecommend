@@ -38,5 +38,10 @@ public class PostBO {
 		
 		return postList;
 	}
+	
+	public Post getPost(int postId) {
+		
+		return postDAO.selectPost(postId);
+	}
 
 }

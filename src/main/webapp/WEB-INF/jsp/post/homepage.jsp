@@ -18,21 +18,41 @@
 </head>
 <body>
 
-	<div id="wrap">
+	<div class="container">
 		<c:import url="/WEB-INF/jsp/include/header.jsp" />
-		<section class="d-flex justify-content-center">
-		<div>
-		<div class="display-4 ">평점순</div>
-		<div class="d-flex justidy-content-between">
+		<section class="  ">
+		
+		<div class="display-4 ">최신순</div>
+		
+		<div class="d-flex justify-content-between mt-3 showcontents scrollbar   " >
 		<c:forEach var="postDetail" items="${postList }">
 		
-		<div >
-		<img src="${postDetail.imagePath }" width="100" height="150">
-		<a href="">${postDetail.subject }</a>
+		<div class="page m-3  " >  <!-- page 부분 width:180px 임에도 검사하면 앞쪽만 132.39로 잡히고 뒤쪽은 120으로 잡힌다 m-3로 일시적인 해결은 했으나... -->
+		<div class="h-75">
+		<a href="/post/detail_view?postId=${postDetail.id}"><img src="${postDetail.imagePath }" width="120" height="150"></a>
+		</div>
+		<div class="h-25">
+		<a class="d-flex justify-content-center mt-3 break" href="/post/detail_view?postId=${postDetail.id}">${postDetail.subject }</a>
+		</div>
 		</div>
 		
 		</c:forEach>
 		</div>
+		
+		<div class="display-4 ">평점순</div>
+		
+		<div class="d-flex justify-content-between mt-3 showcontents scrollbar   " >
+		<c:forEach var="postDetail" items="${postList }">
+		
+		<div class="page m-3 " >  <!-- page 부분 width:180px 임에도 검사하면 앞쪽만 132.39로 잡히고 뒤쪽은 120으로 잡힌다 m-3로 일시적인 해결은 했으나... -->
+		<div class="d-flex justify-content-center">
+		<a href="/post/detail_view?postId=${postDetail.id}"><img src="${postDetail.imagePath }" width="120" height="150"></a>
+		</div>
+		<a class="d-flex justify-content-center mt-3" href="/post/detail_view?postId=${postDetail.id}">${postDetail.subject }</a>
+		
+		</div>
+		
+		</c:forEach>
 		</div>
 		
 		</section>
