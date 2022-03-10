@@ -15,8 +15,15 @@ a:hover{
 	text-decoration:none;
 }
 
+.bi-file-plus{
+	font-size: 40px;
+	
+}
 .break{
 	word-break: break-all;
+}
+.changeline{
+	flex-wrap: wrap;
 }
 
 header {

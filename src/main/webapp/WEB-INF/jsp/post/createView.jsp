@@ -45,13 +45,13 @@
   <script> 
          $(document).ready(function(){
         	 $("#saveBtn").on("click",function(){
-        		 let subject = $("#subjectInput").val();
-        		 let genre = $("#genreInput").val();
+        		 let subject = $("#subjectInput").val().trim();
+        		 let genre = $("#genreInput").val().trim();
         		 let content = $("#contentInput").val().trim();
-        		 let broadcastdays = $("#broadcastdaysInput").val();
-        		 let releasedate = $("#releasedateInput").val();
+        		 let broadcastdays = $("#broadcastdaysInput").val().trim();
+        		 let releasedate = $("#releasedateInput").val().trim();
         		 let grade = $("#gradeInput").val();
-        		 let videoPath = $("#videoPathInput").val();
+        		 let videoPath = $("#videoPathInput").val().trim();
         		 
         		 if(subject ==""){
         			 alert("제목을 입력하세요");

@@ -24,7 +24,23 @@ public class PostController {
 	private PostBO postBO;
 	
 	@GetMapping("/homepage")
-	public String timeline(Model model,HttpServletRequest request) {
+	public String homepage(Model model,HttpServletRequest request) {
+		
+		HttpSession session = request.getSession();
+		int userId  = (Integer) session.getAttribute("userId");
+		//List<PostDetail> postList = postBO.getPostList(userId);
+		List<Post> postList = postBO.getPostList();
+		List<Post> scoreList = postBO.getScoreList();
+		
+		
+		
+		model.addAttribute("postList",postList);
+		model.addAttribute("scoreList",scoreList);
+		return "post/homepage";
+	}
+	
+	@GetMapping("/recentshow")
+	public String recentshow(Model model,HttpServletRequest request) {
 		
 		HttpSession session = request.getSession();
 		int userId  = (Integer) session.getAttribute("userId");
@@ -33,8 +49,26 @@ public class PostController {
 		
 		
 		
+		
 		model.addAttribute("postList",postList);
-		return "post/homepage";
+		
+		return "post/recentshow";
+	}
+	
+	@GetMapping("/scoreshow")
+	public String scoreshow(Model model,HttpServletRequest request) {
+		
+		HttpSession session = request.getSession();
+		int userId  = (Integer) session.getAttribute("userId");
+		//List<PostDetail> postList = postBO.getPostList(userId);
+		
+		List<Post> scoreList = postBO.getScoreList();
+		
+		
+		
+		
+		model.addAttribute("scoreList",scoreList);
+		return "post/scoreshow";
 	}
 	
 	

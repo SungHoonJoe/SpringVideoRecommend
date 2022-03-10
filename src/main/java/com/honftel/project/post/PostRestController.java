@@ -46,7 +46,11 @@ public class PostRestController {
 		int userId = (Integer)session.getAttribute("userId");
 		String userName = (String)session.getAttribute("userName");
 		 
-		int count = postBO.addPost(userId, userName, subject, genre, content, broadcastdays, releasedate, grade, videoPath, file);
+		// year 컬럼이 releasedate 뒤에 추가되어 substring으로 연도를 추출하고 Integer.parseInt()로 int형으로 전환후 insert 쿼리에 추가한다
+		
+		String data =  releasedate;
+		int year = Integer.parseInt(data.substring(0,4));
+		int count = postBO.addPost(userId, userName, subject, genre, content, broadcastdays, releasedate, year, grade, videoPath, file);
 		
 		Map<String,String> result = new HashMap<>();
 		

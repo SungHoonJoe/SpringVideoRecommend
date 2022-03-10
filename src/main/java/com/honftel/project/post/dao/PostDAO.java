@@ -18,12 +18,15 @@ public interface PostDAO {
 			@Param("content") String content,
 			@Param("broadcastdays") String broadcastdays,
 			@Param("releasedate") String releasedate,
+			@Param("year") int year,
 			@Param("grade") Double grade,
 			@Param("imagePath") String imagePath,
 			@Param("videoPath") String videoPath
 			);
 	
 	public List<Post> selectPostList();
+	
+	public List<Post> selectScoreList();
 	
 	public Post selectPost(@Param("postId") int postId);
 
