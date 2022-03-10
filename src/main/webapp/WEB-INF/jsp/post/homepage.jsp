@@ -20,42 +20,62 @@
 
 	<div class="container">
 		<c:import url="/WEB-INF/jsp/include/header.jsp" />
-		<section class="  ">
-		
-			<div class="display-4 ">최신순</div>
-		
-			<div class="d-flex justify-content-between mt-3 showcontents scrollbar " >
-			<c:forEach var="postDetail" items="${postList }" end="6">
-		
-				<div class="page  " >  <!-- page 부분 width:180px 임에도 검사하면 앞쪽만 132.39로 잡히고 뒤쪽은 120으로 잡힌다 m-3로 일시적인 해결은 했으나... -->
-					<div class="w-100 h-75">
-						<a href="/post/detail_view?postId=${postDetail.id}"><img src="${postDetail.imagePath }" width="120" height="150"></a>
-					</div>
-					<div class="">
-						<a class="" href="/post/detail_view?postId=${postDetail.id}">${postDetail.subject }</a>
-					</div>
+		<section class="d-flex  ">
+			<div class="col-10">
+				<div class="d-flex justify-content-between m-2">
+					<div class="display-4 ">최신순</div>
+					<span class="img-icon mt-3"> <i class="bi bi-file-plus" id="imgBtn"></i></i></span>
+					<button class="btn btn-sm d-none" id="addBtn">업로드</button>
 				</div>
-		
-			</c:forEach>
-			</div>
-		
-		<div class="display-4 ">평점순</div>
-		
-		<div class="d-flex justify-content-between mt-3 showcontents scrollbar " >
-			<c:forEach var="postDetail" items="${postList }" end="6">
-		
-				<div class="page  " >  <!-- page 부분 width:180px 임에도 검사하면 앞쪽만 132.39로 잡히고 뒤쪽은 120으로 잡힌다 m-3로 일시적인 해결은 했으나... -->
-					<div class="w-100 h-75">
-						<a href="/post/detail_view?postId=${postDetail.id}"><img src="${postDetail.imagePath }" width="120" height="150"></a>
-					</div>
-					<div class="">
-						<a class="" href="/post/detail_view?postId=${postDetail.id}">${postDetail.subject }</a>
-					</div>
+
+				<div
+					class="d-flex justify-content-between mt-3 showcontents  ">
+					<c:forEach var="postDetail" items="${postList }" end="4">
+
+						<div class="page  ">
+							<!-- page 부분 width:180px 임에도 검사하면 앞쪽만 132.39로 잡히고 뒤쪽은 120으로 잡힌다 m-3로 일시적인 해결은 했으나... -->
+							<div class=" h-75">
+								<a href="/post/detail_view?postId=${postDetail.id}"><img
+									src="${postDetail.imagePath }" width="120" height="150"></a>
+							</div> 
+							<div class="h-25 break">
+								<a class="" href="/post/detail_view?postId=${postDetail.id}">${postDetail.subject }</a>
+							</div>
+						</div>
+
+					</c:forEach>
 				</div>
-		
-			</c:forEach>
+
+				<div class="d-flex justify-content-between m-2">
+					<div class="display-4 ">평점순</div>
+					<span class="img-icon mt-3"> <i class="bi bi-file-plus" id="imgBtn"></i></i></span>
+				</div>
+
+				<div
+					class="d-flex justify-content-between mt-3 showcontents  ">
+					<c:forEach var="postDetail" items="${postList }" end="4">
+
+						<div class="page  ">
+							<!-- page 부분 width:180px 임에도 검사하면 앞쪽만 132.39로 잡히고 뒤쪽은 120으로 잡힌다 m-3로 일시적인 해결은 했으나... -->
+							<div class="w-100 h-75">
+								<a href="/post/detail_view?postId=${postDetail.id}"><img
+									src="${postDetail.imagePath }" width="120" height="150"></a>
+							</div>
+							<div class="">
+								<a class="" href="/post/detail_view?postId=${postDetail.id}">${postDetail.subject }</a>
+							</div>
+						</div>
+
+					</c:forEach>
+				</div>
 			</div>
-		
+			<div class="col-2 border rounded mt-3  bg-white  ">
+			
+			<a href="" class="m-5  btn btn-dark " >장르검색</a>
+			<a href="" class="m-5 ml-3 btn btn-dark " >요일별검색</a>
+			<a href="" class="m-5 ml-3 btn btn-dark " >연도별검색</a>
+			</div>
+
 		</section>
 		<c:import url="/WEB-INF/jsp/include/footer.jsp" />
 	</div>
@@ -78,7 +98,7 @@
 
 			$("#imgBtn").on("click", function() {
 				// fileInput 클릭 효과
-				$("#fileInput").click();
+				$("#addBtn").click();
 
 			});
 
