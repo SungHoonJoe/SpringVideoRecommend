@@ -45,6 +45,13 @@ public class PostBO {
 		return postList;
 	}
 	
+	public List<Post> getYearList() {
+		List<Post> postList = postDAO.selectYearList();
+		
+		return postList;
+	}
+	
+	
 	
 	
 	public Post getPost(int postId) {

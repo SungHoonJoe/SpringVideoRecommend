@@ -28,6 +28,9 @@ public interface PostDAO {
 	
 	public List<Post> selectScoreList();
 	
+	
 	public Post selectPost(@Param("postId") int postId);
+	
+	public List<Post> selectYearList();
 
 }

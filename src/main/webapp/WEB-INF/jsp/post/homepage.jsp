@@ -38,7 +38,7 @@
 								<a href="/post/detail_view?postId=${postDetail.id}"><img
 									src="${postDetail.imagePath }" width="120" height="150"></a>
 							</div> 
-							<div class="h-25 break">
+							<div class="h-25 break text-center">
 								<a class="" href="/post/detail_view?postId=${postDetail.id}">${postDetail.subject }</a>
 							</div>
 						</div>
@@ -61,7 +61,7 @@
 								<a href="/post/detail_view?postId=${postDetail.id}"><img
 									src="${postDetail.imagePath }" width="120" height="150"></a>
 							</div>
-							<div class="">
+							<div class="text-center">
 								<a class="" href="/post/detail_view?postId=${postDetail.id}">${postDetail.subject }</a>
 							</div>
 						</div>
@@ -83,7 +83,7 @@
 			<a href="" class="m-5 ml-3 btn btn-dark " >요일별검색</a>
 			</div>
 			<div class=" d-flex justify-content-center">
-			<a href="" class="m-5 ml-3 btn btn-dark " >연도별검색</a>
+			<a href="/post/yearsearch" class="m-5 ml-3 btn btn-dark " >연도별검색</a>
 			</div>
 			</div>
 

@@ -20,25 +20,29 @@
 
 	<div class="container">
 		<c:import url="/WEB-INF/jsp/include/header.jsp" />
-		<section class="  ">
-			
-				
+		<section class=" ">
 
-				<div class="d-flex justify-content-between m-2">
-					<div class="display-4 ">평점순</div>
-					
+			<div class="d-flex justify-content-between m-2">
+				<div class="display-4 ">연도별</div>
+				<div class="d-flex">
+					<input type="text" class="form-control mt-3" placeholder="연도입력"
+						id="yearInput">
+					<button type="button" class="ml-3 mt-3 btn btn-sm  btn-success"
+						id="searchBtn">검색</button>
 				</div>
 
-				<div
-					class="d-flex  mt-3 changeline  ">
-					<c:forEach var="postDetail" items="${scoreList }" >
+			</div>
+
+			<div
+					class="d-flex  mt-3 changeline   ">
+					<c:forEach var="postDetail" items="${postList }" >
 
 						<div class="page m-2  ">
 							<!-- page 부분 width:180px 임에도 검사하면 앞쪽만 132.39로 잡히고 뒤쪽은 120으로 잡힌다 m-3로 일시적인 해결은 했으나... -->
-							<div class="w-100 h-75">
+							<div class=" h-75">
 								<a href="/post/detail_view?postId=${postDetail.id}"><img
 									src="${postDetail.imagePath }" width="120" height="150"></a>
-							</div>
+							</div> 
 							<div class="h-25 break text-center">
 								<a class="" href="/post/detail_view?postId=${postDetail.id}">${postDetail.subject }</a>
 							</div>
@@ -46,6 +50,8 @@
 
 					</c:forEach>
 				</div>
+
+				
 			
 		</section>
 		<c:import url="/WEB-INF/jsp/include/footer.jsp" />
@@ -164,26 +170,26 @@
 				});
 			});
 
-			$(".unlikeBtn").on("click", function(e) {
+			$("#searchBtn").on("click", function(e) {
 				e.preventDefault();
-				let postId = $(this).data("post-id");
+				let year = $("#yearInput").val()
 
 				$.ajax({
 					type : "get",
-					url : "/post/unlike",
+					url : "/post/year",
 					data : {
-						"postId" : postId
+						"year" : year
 					},
 					success : function(data) {
 						if (data.result == "success") {
 							location.reload();
 						} else {
-							alert("좋아요 취소 실패");
+							alert("연도별 조회 실패");
 						}
 
 					},
 					error : function() {
-						alert("좋아요 취소 실패!!!")
+						alert("연도별 조회 실패!!!")
 					}
 				});
 
@@ -191,7 +197,7 @@
 			
 			$(".moreBtn").on("click",function(e){
 				e.preventDefault();
-				let postId = $(this).data("post-id");
+				let year = $(this).data("post-id");
 				
 				//postId 를 모달의 삭제하기 버튼에 값을 부여한다.
 				$("#deleteBtn").data("post-id",postId);

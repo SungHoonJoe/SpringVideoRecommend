@@ -120,6 +120,32 @@
 	
 	</select>
 	
+	<select id="selectYearList"  resultType="com.honftel.project.post.model.Post">
+	   SELECT
+	         `id`
+	         ,`userId`
+			,`userName`
+			,`subject`
+			,`genre`
+			,`content`
+			,`broadcastdays`
+			,`releasedate`
+			,`year`
+			,`grade`
+			,`imagePath`
+			,`videoPath`
+			, `createdAt`
+			, `updatedAt`
+      FROM 
+          `post`
+      ORDER BY
+              `year`
+      DESC 
+	         
+	
+	
+	</select>
+	
 	
 
 

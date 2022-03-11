@@ -37,7 +37,7 @@
 								<a href="/post/detail_view?postId=${postDetail.id}"><img
 									src="${postDetail.imagePath }" width="120" height="150"></a>
 							</div> 
-							<div class="h-25 break">
+							<div class="h-25 break text-center">
 								<a class="" href="/post/detail_view?postId=${postDetail.id}">${postDetail.subject }</a>
 							</div>
 						</div>
