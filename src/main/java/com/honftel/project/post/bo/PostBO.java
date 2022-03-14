@@ -51,6 +51,17 @@ public class PostBO {
 		return postList;
 	}
 	
+	public List<Post> getYearSelectedList(int year) {
+		List<Post> postList = postDAO.searchYearList(year);
+		
+		return postList;
+	}
+	
+	public List<Post> getSubjectSelectedList(String subject) {
+		List<Post> postList = postDAO.searchSubjectList(subject);
+		
+		return postList;
+	}
 	
 	
 	

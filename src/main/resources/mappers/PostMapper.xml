@@ -147,6 +147,54 @@
 	</select>
 	
 	
+	<select id="searchYearList"  resultType="com.honftel.project.post.model.Post">
+	   SELECT
+	         `id`
+	         ,`userId`
+			,`userName`
+			,`subject`
+			,`genre`
+			,`content`
+			,`broadcastdays`
+			,`releasedate`
+			,`year`
+			,`grade`
+			,`imagePath`
+			,`videoPath`
+			, `createdAt`
+			, `updatedAt`
+      FROM 
+          `post`
+      WHERE `year` = #{year}
+	         
+	
+	
+	</select>
+	
+	<select id="searchSubjectList"  resultType="com.honftel.project.post.model.Post">
+	   SELECT
+	         `id`
+	         ,`userId`
+			,`userName`
+			,`subject`
+			,`genre`
+			,`content`
+			,`broadcastdays`
+			,`releasedate`
+			,`year`
+			,`grade`
+			,`imagePath`
+			,`videoPath`
+			, `createdAt`
+			, `updatedAt`
+      FROM 
+          `post`
+      WHERE `subject` 
+      LIKE `%`+#{subject}+`%`
+	         
+	
+	
+	</select>
 
 
 </mapper>

@@ -22,16 +22,8 @@
 		<c:import url="/WEB-INF/jsp/include/header.jsp" />
 		<section class=" ">
 
-			<div class="d-flex justify-content-between m-2">
-				<div class="display-4 ">연도별</div>
-				<div class="d-flex">
-					<input type="text" class="form-control mt-3" placeholder="연도입력"
-						id="yearInput">
-					<button type="button" class="ml-3 mt-3 btn btn-sm  btn-success"
-						id="searchBtn">검색</button>
-				</div>
-
-			</div>
+			
+			<div class="display-4"></div>
 
 			<div
 					class="d-flex  mt-3 changeline   ">
@@ -173,12 +165,22 @@
 			$("#searchBtn").on("click", function(e) {
 				
 				let year = $("#yearInput").val();
-				
-				location.href="/post/yearinfo/?year="+year;
-				
-				
-				
 
+				$.ajax({
+					type : "get",
+					url : "/post/like",
+					data : {
+						"postId" : postId
+					},
+					success : function(data) {
+
+						location.reload();
+
+					},
+					error : function() {
+						alert("좋아요 에러!!!");
+					}
+				});
 				
 
 			});

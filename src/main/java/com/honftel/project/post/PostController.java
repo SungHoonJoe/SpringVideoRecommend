@@ -86,6 +86,35 @@ public class PostController {
 		
 		return "post/yearsearch";
 	}
+	@GetMapping("/yearinfo")
+	public String yearinfo(@RequestParam("year") int year, Model model,HttpServletRequest request) {
+		
+		
+		//List<PostDetail> postList = postBO.getPostList(userId);
+		List<Post> postList = postBO. getYearSelectedList(year);
+		
+		
+		
+		
+		model.addAttribute("postList",postList);
+		
+		return "post/yearinfo";
+	}
+	
+	@GetMapping("/searchinfo")
+	public String searchinfo(@RequestParam("subject") String subject, Model model,HttpServletRequest request) {
+		
+		
+		//List<PostDetail> postList = postBO.getPostList(userId);
+		List<Post> postList = postBO.getSubjectSelectedList(subject);
+		
+		
+		
+		
+		model.addAttribute("postList",postList);
+		
+		return "post/yearinfo";
+	}
 	
 	
 	@GetMapping("/create_view")

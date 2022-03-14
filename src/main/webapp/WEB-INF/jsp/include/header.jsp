@@ -13,10 +13,10 @@
 	<%-- 세션에 userId 값이 존재하는지?  --%>
 	<div class="input-group mb-3 mt-4 w-50">
 		<input type="text" class="form-control w-6"
-			placeholder="내용을 입력해 주세요" 
-			aria-describedby="basic-addon2">
+			id="subject" placeholder="내용을 입력해 주세요" 
+			>
 		<div class="input-group-append">
-			<span class="input-group-text" id="basic-addon2">검색</span>
+			<button class="btn btn-inline-secondary" id="retrieval" type="button">검색</button>
 		</div>
 	</div>
 	<c:choose>

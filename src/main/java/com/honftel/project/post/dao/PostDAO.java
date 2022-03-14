@@ -32,5 +32,9 @@ public interface PostDAO {
 	public Post selectPost(@Param("postId") int postId);
 	
 	public List<Post> selectYearList();
+	
+	public List<Post> searchYearList(@Param("year") int year);
+	
+	public List<Post> searchSubjectList(@Param("subject") String subject);
 
 }

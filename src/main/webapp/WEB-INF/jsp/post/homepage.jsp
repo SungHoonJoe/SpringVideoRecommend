@@ -108,9 +108,10 @@
 		$(document).ready(function() {
 
 			
-			$("#imgBtn").on("click", function() {
-				// fileInput 클릭 효과
-				$("#addBtn").click();
+			$("#retrieval").on("click", function() {
+                let subject = $("#subject").val();
+				
+				location.href="/post/searchinfo/?subject="+subject;
 
 			});
 
