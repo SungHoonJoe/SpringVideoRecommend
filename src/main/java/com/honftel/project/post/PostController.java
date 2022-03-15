@@ -71,6 +71,24 @@ public class PostController {
 		return "post/scoreshow";
 	}
 	
+	@GetMapping("/weeksearch")
+	public String weeksearch(Model model,HttpServletRequest request) {
+		
+		HttpSession session = request.getSession();
+		int userId  = (Integer) session.getAttribute("userId");
+		//List<PostDetail> postList = postBO.getPostList(userId);
+		List<Post> postList = postBO.getYearList();
+		
+		
+		
+		
+		model.addAttribute("postList",postList);
+		
+		return "post/yearsearch";
+	}
+	
+	
+	
 	@GetMapping("/yearsearch")
 	public String yearsearch(Model model,HttpServletRequest request) {
 		
