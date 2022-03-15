@@ -89,6 +89,7 @@
 
 		</section>
 		<c:import url="/WEB-INF/jsp/include/footer.jsp" />
+		<c:import url="/WEB-INF/jsp/include/searchapply.jsp" />
 	</div>
 	
 	<!-- Modal -->
@@ -108,12 +109,7 @@
 		$(document).ready(function() {
 
 			
-			$("#retrieval").on("click", function() {
-                let subject = $("#subject").val();
-				
-				location.href="/post/searchinfo/?subject="+subject;
-
-			});
+			  
 
 			$("#uploadBtn").on("click", function() {
 				let content = $("#contentInput").val().trim();

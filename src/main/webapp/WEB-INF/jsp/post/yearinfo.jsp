@@ -46,6 +46,7 @@
 			
 		</section>
 		<c:import url="/WEB-INF/jsp/include/footer.jsp" />
+		<c:import url="/WEB-INF/jsp/include/searchapply.jsp" />
 	</div>
 	
 	<!-- Modal -->

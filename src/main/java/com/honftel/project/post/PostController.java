@@ -113,7 +113,7 @@ public class PostController {
 		
 		model.addAttribute("postList",postList);
 		
-		return "post/yearinfo";
+		return "post/searchinfo";
 	}
 	
 	

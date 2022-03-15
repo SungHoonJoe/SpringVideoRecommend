@@ -22,9 +22,7 @@
 		<c:import url="/WEB-INF/jsp/include/header.jsp" />
 		<section class=" ">
 
-			
-			<div class="display-4"></div>
-
+			<div class="display-4">검색결과</div>
 			<div
 					class="d-flex  mt-3 changeline   ">
 					<c:forEach var="postDetail" items="${postList }" >

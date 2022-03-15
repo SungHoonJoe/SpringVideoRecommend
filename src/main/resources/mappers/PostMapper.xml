@@ -190,7 +190,7 @@
       FROM 
           `post`
       WHERE `subject` 
-      LIKE `%`+#{subject}+`%`
+      LIKE concat('%',#{subject},'%')
 	         
 	
 	
