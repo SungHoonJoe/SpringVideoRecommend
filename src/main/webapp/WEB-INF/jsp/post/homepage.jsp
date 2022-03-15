@@ -80,7 +80,7 @@
 			<a href="" class="m-5   btn btn-dark " >장르검색</a>
 			</div>
 			<div class=" d-flex justify-content-center">
-			<a href="" class="m-5 ml-3 btn btn-dark " >요일별검색</a>
+			<a href="/post/weeksearch" class="m-5 ml-3 btn btn-dark " >요일별검색</a>
 			</div>
 			<div class=" d-flex justify-content-center">
 			<a href="/post/yearsearch" class="m-5 ml-3 btn btn-dark " >연도별검색</a>
