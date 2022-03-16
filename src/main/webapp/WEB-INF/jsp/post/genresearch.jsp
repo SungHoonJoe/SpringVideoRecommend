@@ -20,71 +20,34 @@
 
 	<div class="container">
 		<c:import url="/WEB-INF/jsp/include/header.jsp" />
-		<section class="d-flex  ">
-			<div class="col-10">
-				<div class="d-flex justify-content-between m-2">
-					<div class="display-4 ">업데이트</div>
-					<div><a href="/post/recentshow" class="m-5" ><span class="img-icon mt-3"> <i class="bi bi-file-plus" ></i></i></span></a></div>
-					
-				</div>
-
-				<div
-					class="d-flex justify-content-between mt-4 showcontents  ">
-					<c:forEach var="postDetail" items="${postList }" end="4">
-
-						<div class="page  ">
-							<!-- page 부분 width:180px 임에도 검사하면 앞쪽만 132.39로 잡히고 뒤쪽은 120으로 잡힌다 m-3로 일시적인 해결은 했으나... -->
-							<div class=" h-75">
-								<a href="/post/detail_view?postId=${postDetail.id}"><img
-									src="${postDetail.imagePath }" width="120" height="150"></a>
-							</div> 
-							<div class="h-25 break text-center">
-								<a class="" href="/post/detail_view?postId=${postDetail.id}">${postDetail.subject }</a>
-							</div>
-						</div>
-
-					</c:forEach>
-				</div>
-
-				<div class="d-flex justify-content-between m-2">
-					<div class="display-4 ">평점순</div>
-					<div><a href="/post/scoreshow" class="m-5" ><span class="img-icon mt-3"> <i class="bi bi-file-plus" ></i></i></span></a></div>
-				</div>
-
-				<div
-					class="d-flex justify-content-between mt-4 showcontents  ">
-					<c:forEach var="postDetail" items="${scoreList }" end="4">
-
-						<div class="page  ">
-							<!-- page 부분 width:180px 임에도 검사하면 앞쪽만 132.39로 잡히고 뒤쪽은 120으로 잡힌다 m-3로 일시적인 해결은 했으나... -->
-							<div class="w-100 h-75">
-								<a href="/post/detail_view?postId=${postDetail.id}"><img
-									src="${postDetail.imagePath }" width="120" height="150"></a>
-							</div>
-							<div class="text-center">
-								<a class="" href="/post/detail_view?postId=${postDetail.id}">${postDetail.subject }</a>
-							</div>
-						</div>
-
-					</c:forEach>
-				</div>
-			</div>
+		<section class="  ">
+			
 			<div class="col-2 border rounded mt-3  bg-white  ">
 			
-			<div class="m-3 d-flex justify-content-center">
-			<a href="/post/create_view" id="changeBtn" class="m-5   " >
-		    <i class="bi bi-file-plus " id="plusBtn"></i>
-			</a>
-			</div>
-			<div class=" d-flex justify-content-center">
-			<a href="/post/genresearch" class="m-5   btn btn-dark " >장르검색</a>
-			</div>
-			<div class=" d-flex justify-content-center">
-			<a href="/post/weeksearch" class="m-5 ml-3 btn btn-dark " >요일별검색</a>
-			</div>
-			<div class=" d-flex justify-content-center">
-			<a href="/post/yearsearch" class="m-5 ml-3 btn btn-dark " >연도별검색</a>
-			</div>
+			<div class="mt-3 display-5 font-weight-bold">장르</div>
+			<hr>
+			<input type='checkbox' class="m-2 box-size" name='genre' value='드라마' /> 드라마<br>
+			<input type='checkbox' class="m-2 box-size" name='genre' value='코미디' /> 코미디<br>
+			<input type='checkbox' class="m-2 box-size" name='genre' value='학원' /> 학원<br>
+			<input type='checkbox' class="m-2 box-size" name='genre' value='미스테리' /> 미스테리<br>
+			<input type='checkbox' class="m-2 box-size" name='genre' value='판타지' /> 판타지<br>
+			<input type='checkbox' class="m-2 box-size" name='genre' value='액션' /> 액션<br>
+			<input type='checkbox' class="m-2 box-size" name='genre' value='로맨스' /> 로맨스<br>
+			<input type='checkbox' class="m-2 box-size" name='genre' value='성인' /> 성인<br>
+			<input type='checkbox' class="m-2 box-size" name='genre' value='SF' /> SF<br>
+			<input type='checkbox' class="m-2 box-size" name='genre' value='일상' /> 일상<br>
+			<input type='checkbox' class="m-2 box-size" name='genre' value='개그' /> 개그<br>
+			<input type='checkbox' class="m-2 box-size" name='genre' value='하렘' /> 하렘<br>
+			<input type='checkbox' class="m-2 box-size" name='genre' value='메카닉' /> 메카닉<br>
+			<input type='checkbox' class="m-2 box-size" name='genre' value='능력' /> 능력<br>
+			<input type='checkbox' class="m-2 box-size" name='genre' value='소꿉친구' /> 소꿉친구<br>
+			<input type='checkbox' class="m-2 box-size" name='genre' value='마법' /> 마법<br>
+			<input type='checkbox' class="m-2 box-size" name='genre' value='군' /> 군<br>
+			<input type='checkbox' class="m-2 box-size" name='genre' value='시대' /> 시대<br>
+			<hr>
+			
+			
+			
 			</div>
 
 		</section>
@@ -108,7 +71,13 @@
 	<script>
 		$(document).ready(function() {
 
-			
+			var source;
+			$("input[name=genre]:checked").each(function(){
+				
+				var data = $(this).val();
+				source += data+"<br>"
+				
+			});
 			  
 
 			$("#uploadBtn").on("click", function() {

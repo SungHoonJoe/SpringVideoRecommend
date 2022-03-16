@@ -71,20 +71,41 @@ public class PostController {
 		return "post/scoreshow";
 	}
 	
+	@GetMapping("/genresearch")
+	public String genresearch(Model model,HttpServletRequest request) {
+		
+		
+		//List<PostDetail> postList = postBO.getPostList(userId);
+		
+		
+		return "post/genresearch";
+	}
+	
 	@GetMapping("/weeksearch")
 	public String weeksearch(Model model,HttpServletRequest request) {
 		
-		HttpSession session = request.getSession();
-		int userId  = (Integer) session.getAttribute("userId");
+		
 		//List<PostDetail> postList = postBO.getPostList(userId);
-		List<Post> postList = postBO.getYearList();
+		List<Post> postList1 = postBO.getWeekList("월");
+		List<Post> postList2 = postBO.getWeekList("화");
+		List<Post> postList3 = postBO.getWeekList("수");
+		List<Post> postList4 = postBO.getWeekList("목");
+		List<Post> postList5 = postBO.getWeekList("금");
+		List<Post> postList6 = postBO.getWeekList("토");
+		List<Post> postList7 = postBO.getWeekList("일");
 		
 		
 		
 		
-		model.addAttribute("postList",postList);
+		model.addAttribute("postList1",postList1);
+		model.addAttribute("postList2",postList2);
+		model.addAttribute("postList3",postList3);
+		model.addAttribute("postList4",postList4);
+		model.addAttribute("postList5",postList5);
+		model.addAttribute("postList6",postList6);
+		model.addAttribute("postList7",postList7);
 		
-		return "post/yearsearch";
+		return "post/weeksearch";
 	}
 	
 	
@@ -92,8 +113,7 @@ public class PostController {
 	@GetMapping("/yearsearch")
 	public String yearsearch(Model model,HttpServletRequest request) {
 		
-		HttpSession session = request.getSession();
-		int userId  = (Integer) session.getAttribute("userId");
+		
 		//List<PostDetail> postList = postBO.getPostList(userId);
 		List<Post> postList = postBO.getYearList();
 		

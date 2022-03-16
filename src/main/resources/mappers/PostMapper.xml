@@ -120,6 +120,31 @@
 	
 	</select>
 	
+	
+	<select id="selectWeekList" parameterType="String" resultType="com.honftel.project.post.model.Post">
+	SELECT
+	         `id`
+	         ,`userId`
+			,`userName`
+			,`subject`
+			,`genre`
+			,`content`
+			,`broadcastdays`
+			,`releasedate`
+			,`year`
+			,`grade`
+			,`imagePath`
+			,`videoPath`
+			, `createdAt`
+			, `updatedAt`
+      FROM 
+          `post`
+      WHERE
+           `broadcastdays` = #{broadcastdays}
+	
+	
+	</select>
+	
 	<select id="selectYearList"  resultType="com.honftel.project.post.model.Post">
 	   SELECT
 	         `id`

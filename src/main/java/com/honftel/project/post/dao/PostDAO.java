@@ -31,6 +31,8 @@ public interface PostDAO {
 	
 	public Post selectPost(@Param("postId") int postId);
 	
+	public List<Post> selectWeekList(@Param("broadcastdays") String broadcastdays);
+	
 	public List<Post> selectYearList();
 	
 	public List<Post> searchYearList(@Param("year") int year);

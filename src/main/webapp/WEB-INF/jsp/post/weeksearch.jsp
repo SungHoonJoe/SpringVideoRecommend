@@ -20,33 +20,149 @@
 
 	<div class="container">
 		<c:import url="/WEB-INF/jsp/include/header.jsp" />
-		<section class="d-flex ">
+		<section class=" ">
 			
 				
 
-				<div class="d-flex justify-content-between m-2">
+				<div class="d-flex justify-content-between ml-5 m-2">
 					<div class="display-4 ">요일별순</div>
 					
 				</div>
+			<div class="d-flex justify-content-center">
+				<div>
+					<h1 class="text-primary text-center">월</h1>
+					<div class="mt-3 ">
+						<c:forEach var="postDetail" items="${postList1 }">
 
-				<div
-					class="mt-3 ">
-					<c:forEach var="postDetail" items="${scoreList }" >
-
-						<div class="page m-2  ">
-							<!-- page 부분 width:180px 임에도 검사하면 앞쪽만 132.39로 잡히고 뒤쪽은 120으로 잡힌다 m-3로 일시적인 해결은 했으나... -->
-							<div class="w-100 h-75">
-								<a href="/post/detail_view?postId=${postDetail.id}"><img
-									src="${postDetail.imagePath }" width="120" height="150"></a>
+							<div class="page m-2  ">
+								<!-- page 부분 width:180px 임에도 검사하면 앞쪽만 132.39로 잡히고 뒤쪽은 120으로 잡힌다 m-3로 일시적인 해결은 했으나... -->
+								<div class="w-100 h-75">
+									<a href="/post/detail_view?postId=${postDetail.id}"><img
+										src="${postDetail.imagePath }" width="120" height="150"></a>
+								</div>
+								<div class="h-25 break text-center">
+									<a class="" href="/post/detail_view?postId=${postDetail.id}">${postDetail.subject }</a>
+								</div>
 							</div>
-							<div class="h-25 break text-center">
-								<a class="" href="/post/detail_view?postId=${postDetail.id}">${postDetail.subject }</a>
-							</div>
-						</div>
 
-					</c:forEach>
+						</c:forEach>
+					</div>
 				</div>
-			
+				<div>
+					<h1 class="text-primary text-center">화</h1>
+					<div class="mt-3 ">
+						<c:forEach var="postDetail" items="${postList2 }">
+
+							<div class="page m-2  ">
+								<!-- page 부분 width:180px 임에도 검사하면 앞쪽만 132.39로 잡히고 뒤쪽은 120으로 잡힌다 m-3로 일시적인 해결은 했으나... -->
+								<div class="w-100 h-75">
+									<a href="/post/detail_view?postId=${postDetail.id}"><img
+										src="${postDetail.imagePath }" width="120" height="150"></a>
+								</div>
+								<div class="h-25 break text-center">
+									<a class="" href="/post/detail_view?postId=${postDetail.id}">${postDetail.subject }</a>
+								</div>
+							</div>
+
+						</c:forEach>
+					</div>
+				</div>
+				<div>
+					<h1 class="text-primary text-center">수</h1>
+					<div class="mt-3 ">
+						<c:forEach var="postDetail" items="${postList3 }">
+
+							<div class="page m-2  ">
+								<!-- page 부분 width:180px 임에도 검사하면 앞쪽만 132.39로 잡히고 뒤쪽은 120으로 잡힌다 m-3로 일시적인 해결은 했으나... -->
+								<div class="w-100 h-75">
+									<a href="/post/detail_view?postId=${postDetail.id}"><img
+										src="${postDetail.imagePath }" width="120" height="150"></a>
+								</div>
+								<div class="h-25 break text-center">
+									<a class="" href="/post/detail_view?postId=${postDetail.id}">${postDetail.subject }</a>
+								</div>
+							</div>
+
+						</c:forEach>
+					</div>
+				</div>
+				<div>
+					<h1 class="text-primary text-center">목</h1>
+					<div class="mt-3 ">
+						<c:forEach var="postDetail" items="${postList4 }">
+
+							<div class="page m-2  ">
+								<!-- page 부분 width:180px 임에도 검사하면 앞쪽만 132.39로 잡히고 뒤쪽은 120으로 잡힌다 m-3로 일시적인 해결은 했으나... -->
+								<div class="w-100 h-75">
+									<a href="/post/detail_view?postId=${postDetail.id}"><img
+										src="${postDetail.imagePath }" width="120" height="150"></a>
+								</div>
+								<div class="h-25 break text-center">
+									<a class="" href="/post/detail_view?postId=${postDetail.id}">${postDetail.subject }</a>
+								</div>
+							</div>
+
+						</c:forEach>
+					</div>
+				</div>
+				<div>
+					<h1 class="text-primary text-center">금</h1>
+					<div class="mt-3 ">
+						<c:forEach var="postDetail" items="${postList5 }">
+
+							<div class="page m-2  ">
+								<!-- page 부분 width:180px 임에도 검사하면 앞쪽만 132.39로 잡히고 뒤쪽은 120으로 잡힌다 m-3로 일시적인 해결은 했으나... -->
+								<div class="w-100 h-75">
+									<a href="/post/detail_view?postId=${postDetail.id}"><img
+										src="${postDetail.imagePath }" width="120" height="150"></a>
+								</div>
+								<div class="h-25 break text-center">
+									<a class="" href="/post/detail_view?postId=${postDetail.id}">${postDetail.subject }</a>
+								</div>
+							</div>
+
+						</c:forEach>
+					</div>
+				</div>
+				<div>
+					<h1 class="text-primary text-center">토</h1>
+					<div class="mt-3 ">
+						<c:forEach var="postDetail" items="${postList6 }">
+
+							<div class="page m-2  ">
+								<!-- page 부분 width:180px 임에도 검사하면 앞쪽만 132.39로 잡히고 뒤쪽은 120으로 잡힌다 m-3로 일시적인 해결은 했으나... -->
+								<div class="w-100 h-75">
+									<a href="/post/detail_view?postId=${postDetail.id}"><img
+										src="${postDetail.imagePath }" width="120" height="150"></a>
+								</div>
+								<div class="h-25 break text-center">
+									<a class="" href="/post/detail_view?postId=${postDetail.id}">${postDetail.subject }</a>
+								</div>
+							</div>
+
+						</c:forEach>
+					</div>
+				</div>
+				<div>
+					<h1 class="text-primary text-center">일</h1>
+					<div class="mt-3 ">
+						<c:forEach var="postDetail" items="${postList7 }">
+
+							<div class="page m-2  ">
+								<!-- page 부분 width:180px 임에도 검사하면 앞쪽만 132.39로 잡히고 뒤쪽은 120으로 잡힌다 m-3로 일시적인 해결은 했으나... -->
+								<div class="w-100 h-75">
+									<a href="/post/detail_view?postId=${postDetail.id}"><img
+										src="${postDetail.imagePath }" width="120" height="150"></a>
+								</div>
+								<div class="h-25 break text-center">
+									<a class="" href="/post/detail_view?postId=${postDetail.id}">${postDetail.subject }</a>
+								</div>
+							</div>
+
+						</c:forEach>
+					</div>
+				</div>
+			</div>
 		</section>
 		<c:import url="/WEB-INF/jsp/include/footer.jsp" />
 		<c:import url="/WEB-INF/jsp/include/searchapply.jsp" />

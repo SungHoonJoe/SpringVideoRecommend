@@ -45,6 +45,13 @@ public class PostBO {
 		return postList;
 	}
 	
+	public List<Post> getWeekList(String broadcastdays) {
+		List<Post> postList = postDAO.selectWeekList(broadcastdays);
+		
+		return postList;
+	}
+	
+	
 	public List<Post> getYearList() {
 		List<Post> postList = postDAO.selectYearList();
 		
