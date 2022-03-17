@@ -81,6 +81,22 @@ public class PostController {
 		return "post/genresearch";
 	}
 	
+	@GetMapping("/genreinfo")
+	public String genreinfo(@RequestParam("genre") String genre, Model model,HttpServletRequest request) {
+		
+		
+		//List<PostDetail> postList = postBO.getPostList(userId);
+		List<Post> postList = postBO.getGenreSelectedList(genre);
+		
+		
+		
+		
+		model.addAttribute("postList",postList);
+		
+		return "post/genreinfo";
+	}
+	
+	
 	@GetMapping("/weeksearch")
 	public String weeksearch(Model model,HttpServletRequest request) {
 		

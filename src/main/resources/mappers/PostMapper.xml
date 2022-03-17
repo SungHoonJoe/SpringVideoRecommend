@@ -120,6 +120,33 @@
 	
 	</select>
 	
+	<select id="searchGenreList" parameterType="String"  resultType="com.honftel.project.post.model.Post">
+	   SELECT
+	         `id`
+	         ,`userId`
+			,`userName`
+			,`subject`
+			,`genre`
+			,`content`
+			,`broadcastdays`
+			,`releasedate`
+			,`year`
+			,`grade`
+			,`imagePath`
+			,`videoPath`
+			, `createdAt`
+			, `updatedAt`
+      FROM 
+          `post`
+      WHERE `genre` 
+      LIKE concat('%',#{genre},'%')
+	         
+	
+	
+	</select>
+	
+	
+	
 	
 	<select id="selectWeekList" parameterType="String" resultType="com.honftel.project.post.model.Post">
 	SELECT
@@ -145,7 +172,7 @@
 	
 	</select>
 	
-	<select id="selectYearList"  resultType="com.honftel.project.post.model.Post">
+	<select id="selectYearList"   resultType="com.honftel.project.post.model.Post">
 	   SELECT
 	         `id`
 	         ,`userId`
@@ -172,7 +199,7 @@
 	</select>
 	
 	
-	<select id="searchYearList"  resultType="com.honftel.project.post.model.Post">
+	<select id="searchYearList" parameterType="int" resultType="com.honftel.project.post.model.Post">
 	   SELECT
 	         `id`
 	         ,`userId`

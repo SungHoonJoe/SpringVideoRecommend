@@ -20,50 +20,31 @@
 
 	<div class="container">
 		<c:import url="/WEB-INF/jsp/include/header.jsp" />
-		<section class="d-flex  ">
-			
-			<div class="col-2 border rounded mt-3  bg-white  ">
-			<div class="d-flex justify-content-between">
-			<div class="mt-3 display-5 font-weight-bold">장르</div>
-			<div class="mt-2">
-			
-			<button type="button" class="d-none" id="reset"></button>
-			<span class="img-icon"> <i class="bi bi-trash text-secondary" id="trash"></i></span>
-			</div>
-			
-			</div>
-			
-			<hr>
-			<input type='checkbox' class="m-2 box-size" name='genre' value='드라마' /> 드라마<br>
-			<input type='checkbox' class="m-2 box-size" name='genre' value='코미디' /> 코미디<br>
-			<input type='checkbox' class="m-2 box-size" name='genre' value='학원' /> 학원<br>
-			<input type='checkbox' class="m-2 box-size" name='genre' value='미스테리' /> 미스테리<br>
-			<input type='checkbox' class="m-2 box-size" name='genre' value='판타지' /> 판타지<br>
-			<input type='checkbox' class="m-2 box-size" name='genre' value='액션' /> 액션<br>
-			<input type='checkbox' class="m-2 box-size" name='genre' value='로맨스' /> 로맨스<br>
-			<input type='checkbox' class="m-2 box-size" name='genre' value='성인' /> 성인<br>
-			<input type='checkbox' class="m-2 box-size" name='genre' value='SF' /> SF<br>
-			<input type='checkbox' class="m-2 box-size" name='genre' value='일상' /> 일상<br>
-			<input type='checkbox' class="m-2 box-size" name='genre' value='개그' /> 개그<br>
-			<input type='checkbox' class="m-2 box-size" name='genre' value='하렘' /> 하렘<br>
-			<input type='checkbox' class="m-2 box-size" name='genre' value='메카닉' /> 메카닉<br>
-			<input type='checkbox' class="m-2 box-size" name='genre' value='능력' /> 능력<br>
-			<input type='checkbox' class="m-2 box-size" name='genre' value='소꿉친구' /> 소꿉친구<br>
-			<input type='checkbox' class="m-2 box-size" name='genre' value='마법' /> 마법<br>
-			<input type='checkbox' class="m-2 box-size" name='genre' value='군' /> 군<br>
-			<input type='checkbox' class="m-2 box-size" name='genre' value='시대' /> 시대<br>
-			<hr>
-			
-			
-			
-			</div>
-			<div class="col-10 h-25 d-flex justify-content-end">
-			<button type="button" class="btn btn-success" id="apply">적용하기</button>
-			</div>
+		<section class=" ">
 
+			<div class="display-4">검색결과</div>
+			<div
+					class="d-flex  mt-3 changeline   ">
+					<c:forEach var="postDetail" items="${postList }" >
+
+						<div class="page m-2  ">
+							<!-- page 부분 width:180px 임에도 검사하면 앞쪽만 132.39로 잡히고 뒤쪽은 120으로 잡힌다 m-3로 일시적인 해결은 했으나... -->
+							<div class=" h-75">
+								<a href="/post/detail_view?postId=${postDetail.id}"><img
+									src="${postDetail.imagePath }" width="120" height="150"></a>
+							</div> 
+							<div class="h-25 break text-center">
+								<a class="" href="/post/detail_view?postId=${postDetail.id}">${postDetail.subject }</a>
+							</div>
+						</div>
+
+					</c:forEach>
+				</div>
+
+				
+			
 		</section>
 		<c:import url="/WEB-INF/jsp/include/footer.jsp" />
-		<c:import url="/WEB-INF/jsp/include/searchapply.jsp" />
 	</div>
 	
 	<!-- Modal -->
@@ -81,40 +62,12 @@
 
 	<script>
 		$(document).ready(function() {
-			var source="";
-			
-			$("#trash").on("click", function() {
-				// fileInput 클릭 효과
-				$("#reset").click();
-				source="";
 
-			});
 			
-			$("#reset").on("click", function() {
-			
-			 $("input[type=checkbox]").prop("checked", false);
-				
-			});
-			
-			
-			  
-			
-			
-            $("#apply").on("click", function() {
-            	source="";
-            	$("input[name='genre']:checked").each(function(){
-        			
-            		
-    			    data = $(this).val();
-    				
-    				
-    				source = source + data + " ";
-    				
-    			
-    			});
-				alert(source);
-				
-				location.href = "/post/genreinfo/?genre=" + source;
+			$("#imgBtn").on("click", function() {
+				// fileInput 클릭 효과
+				$("#addBtn").click();
+
 			});
 
 			$("#uploadBtn").on("click", function() {
@@ -207,34 +160,32 @@
 				});
 			});
 
-			$(".unlikeBtn").on("click", function(e) {
-				e.preventDefault();
-				let postId = $(this).data("post-id");
+			$("#searchBtn").on("click", function(e) {
+				
+				let year = $("#yearInput").val();
 
 				$.ajax({
 					type : "get",
-					url : "/post/unlike",
+					url : "/post/like",
 					data : {
 						"postId" : postId
 					},
 					success : function(data) {
-						if (data.result == "success") {
-							location.reload();
-						} else {
-							alert("좋아요 취소 실패");
-						}
+
+						location.reload();
 
 					},
 					error : function() {
-						alert("좋아요 취소 실패!!!")
+						alert("좋아요 에러!!!");
 					}
 				});
+				
 
 			});
 			
 			$(".moreBtn").on("click",function(e){
 				e.preventDefault();
-				let postId = $(this).data("post-id");
+				let year = $(this).data("post-id");
 				
 				//postId 를 모달의 삭제하기 버튼에 값을 부여한다.
 				$("#deleteBtn").data("post-id",postId);

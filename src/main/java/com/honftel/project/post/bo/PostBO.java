@@ -45,6 +45,14 @@ public class PostBO {
 		return postList;
 	}
 	
+	public List<Post> getGenreSelectedList(String genre) {
+		List<Post> postList = postDAO.searchGenreList(genre);
+		
+		return postList;
+	}
+	
+	
+	
 	public List<Post> getWeekList(String broadcastdays) {
 		List<Post> postList = postDAO.selectWeekList(broadcastdays);
 		
