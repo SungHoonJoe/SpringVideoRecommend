@@ -28,10 +28,11 @@ public interface PostDAO {
 	
 	public List<Post> selectScoreList();
 	
+	public int selectCountSubject(@Param("subject") String subject);
 	
 	public Post selectPost(@Param("postId") int postId);
 	
-	public List<Post> searchGenreList(@Param("genre") String genre);
+	public List<Post> searchGenreList(@Param("genre") List<String> genre);
 	
 	public List<Post> selectWeekList(@Param("broadcastdays") String broadcastdays);
 	

@@ -63,6 +63,21 @@ public class PostRestController {
 		return result;
 	}
 	
+	@PostMapping("/duplicate")
+	public Map<String,String> duplicateId(@RequestParam("subject") String subject){
+		 Map<String,String> result = new HashMap<>();
+		 
+		 if(postBO.isDuplicateSubject(subject)) {
+			 result.put("isDuplicate", "true");
+		 }else {
+			 result.put("isDuplicate", "false");
+		 }
+		 
+		return result;
+		 
+		 
+	}
+	
 	
 
 }

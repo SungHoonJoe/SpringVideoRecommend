@@ -45,7 +45,7 @@ public class PostBO {
 		return postList;
 	}
 	
-	public List<Post> getGenreSelectedList(String genre) {
+	public List<Post> getGenreSelectedList(List<String> genre) {
 		List<Post> postList = postDAO.searchGenreList(genre);
 		
 		return postList;
@@ -78,6 +78,17 @@ public class PostBO {
 		return postList;
 	}
 	
+    public boolean isDuplicateSubject(String subject) {
+		
+		int count = postDAO.selectCountSubject(subject);
+		
+		if(count == 0) {
+			return false;
+		}else {
+			return true;
+		}
+		
+	}
 	
 	
 	public Post getPost(int postId) {

@@ -122,8 +122,9 @@
 	
 	<select id="searchGenreList" parameterType="String"  resultType="com.honftel.project.post.model.Post">
 	   SELECT
-	         `id`
-	         ,`userId`
+	        count(*) AS count
+	        ,`id`
+	        ,`userId`
 			,`userName`
 			,`subject`
 			,`genre`
@@ -138,9 +139,12 @@
 			, `updatedAt`
       FROM 
           `post`
-      WHERE `genre` 
-      LIKE concat('%',#{genre},'%')
-	         
+      WHERE 
+       
+	  <foreach collection="genre" item="genre" open="(" close=")" separator="AND"> `genre` 
+      LIKE concat('%',#{genre},'%') </foreach>
+
+  
 	
 	
 	</select>
@@ -244,6 +248,18 @@
       WHERE `subject` 
       LIKE concat('%',#{subject},'%')
 	         
+	
+	
+	</select>
+	
+	
+	<select id="selectCountSubject" resultType="int" parameterType="string" >
+	   SELECT
+	      count(*)
+	   FROM
+	       `post`
+	   WHERE
+	        `subject` = #{subject}
 	
 	
 	</select>

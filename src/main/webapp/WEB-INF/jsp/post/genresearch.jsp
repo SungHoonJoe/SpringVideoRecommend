@@ -34,6 +34,7 @@
 			</div>
 			
 			<hr>
+			<form action="/post/genreinfo" method="get" >
 			<input type='checkbox' class="m-2 box-size" name='genre' value='드라마' /> 드라마<br>
 			<input type='checkbox' class="m-2 box-size" name='genre' value='코미디' /> 코미디<br>
 			<input type='checkbox' class="m-2 box-size" name='genre' value='학원' /> 학원<br>
@@ -58,7 +59,8 @@
 			
 			</div>
 			<div class="col-10 h-25 d-flex justify-content-end">
-			<button type="button" class="btn btn-success" id="apply">적용하기</button>
+			<input type="submit" class="btn btn-success" value="전송하기" />
+			</form>
 			</div>
 
 		</section>

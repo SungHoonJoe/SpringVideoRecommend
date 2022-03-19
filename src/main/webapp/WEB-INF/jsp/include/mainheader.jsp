@@ -2,10 +2,12 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <header class="d-flex align-items-center justify-content-between ml-3">
+     <a href="/post/homepage">
 	  <div class="d-flex">
 	  <img src="/static/img/tubelogo.png" class="mr-2" width="50" height="50">
 	  <h1>HONFTEL</h1>
 	  </div>
+	  </a>
 	  <%-- 세션에 userId 값이 존재하는지?  --%>
 	<c:choose>
 		<c:when test="${ not empty userId }">

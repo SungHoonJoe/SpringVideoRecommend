@@ -18,9 +18,17 @@
   <c:import url="/WEB-INF/jsp/include/mainheader.jsp"/>
 		<section class="d-flex justify-content-center">
 			<div class="w-75 my-5">
-		
+		   <div class="d-flex">
 	     	<input type="text" class="form-control mt-3" placeholder="작품 이름" id="subjectInput">
-	     	<input type="text" class="form-control mt-3" placeholder="작품 장르" id="genreInput">
+	     	<button type="button" class="ml-3 mt-3 btn btn-sm  btn-success" id="duplicateBtn">중복확인</button>
+	       </div>
+		   <div id="duplicateDiv" class="d-none">
+				<small class="text-danger">중복된 제목입니다.</small>
+		   </div>
+		   <div id="noneDuplicateDiv" class="d-none">
+				<small class="text-success">사용 가능한 제목입니다.</small>
+			</div>
+			<input type="text" class="form-control mt-3" placeholder="작품 장르" id="genreInput">
 	     	<textarea class="mt-3 form-control" rows="5" placeholder="작품 줄거리" id="contentInput"></textarea>
 	     	<input type="text" class="form-control mt-3" placeholder="작품 방영요일" id="broadcastdaysInput">
 	     	<input type="text" class="form-control mt-3" placeholder="작품 출시일" id="releasedateInput">
@@ -44,6 +52,18 @@
   
   <script> 
          $(document).ready(function(){
+        	 
+        	 var isSubjectCheck = false;
+    		 var isDuplicateSubject = true;
+    		 
+    		// 아이디에 입력이 있을경우 중복체크 상태를 초기화 한다
+    			$("#subjectInput").on("input", function() {
+    				$("#duplicateDiv").addClass("d-none");
+    				$("#noneDuplicateDiv").addClass("d-none");
+    				isSubjectCheck = false;
+    				isDuplicateSubject = true;
+    			});
+    		
         	 $("#saveBtn").on("click",function(){
         		 let subject = $("#subjectInput").val().trim();
         		 let genre = $("#genreInput").val().trim();
@@ -119,6 +139,50 @@
         			 }
         		 });
         	 });
+        	 
+        	 
+        	 $("#duplicateBtn").on("click",function(){
+				  
+        		 let subject = $("#subjectInput").val().trim();
+				  
+				  
+        		 if(subject ==""){
+        			 alert("제목을 입력하세요");
+        			 return;
+        		 }
+				
+				  $.ajax({
+					  type:"post",
+					  url:"/post/duplicate",
+					  data:{"subject":subject},
+					  success:function(data){
+						  //{isDuplicate: true}
+						    isSubjectCheck = true;
+						  if(data.isDuplicate=="true"){
+						  alert("중복된 제목입니다");
+						  isDuplicate = true; <%-- isDuplicate 라는 변수가 어디에 선언되어 있는지 또는 isDuplicateDubject와는 어떠한 관련이 있는지에 대해 궁금합니다 --%>
+							$("#duplicateDiv").removeClass("d-none");
+							$("#noneDuplicateDiv").addClass("d-none");
+			
+						  }else{
+						  alert("사용가능한 제목입니다");
+						  isDuplicate = false;
+							$("#duplicateDiv").addClass("d-none");
+							$("#noneDuplicateDiv").removeClass("d-none");
+						  }
+						  
+						
+							
+							
+						  
+					  },
+					  error:function(){
+						  alert("에러발생");
+						  
+					  }
+				  });
+				  
+			  });
         	 
          });
          

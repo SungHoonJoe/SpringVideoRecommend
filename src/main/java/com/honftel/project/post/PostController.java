@@ -14,11 +14,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.honftel.project.post.bo.PostBO;
 import com.honftel.project.post.model.Post;
-import com.honftel.project.post.model.PostDetail;
 
 @Controller
 @RequestMapping("/post")
 public class PostController {
+	
+	
 	
 	@Autowired
 	private PostBO postBO;
@@ -82,7 +83,7 @@ public class PostController {
 	}
 	
 	@GetMapping("/genreinfo")
-	public String genreinfo(@RequestParam("genre") String genre, Model model,HttpServletRequest request) {
+	public String genreinfo(@RequestParam("genre") List<String> genre, Model model,HttpServletRequest request) {
 		
 		
 		//List<PostDetail> postList = postBO.getPostList(userId);
