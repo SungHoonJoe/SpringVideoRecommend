@@ -36,7 +36,7 @@
 	     	<input type="text" class="form-control mt-3" placeholder="작품 예고편 링크" id="videoPathInput">
 	     	<div class="mt-2 d-flex justify-content-between">
 	     	<input type="file" class="mt-3" id="fileInput">
-	     	<button type="button" class="btn btn-success btn-sm" id="saveBtn">저장</button>
+	     	<button type="button" class="btn btn-primary btn-sm" id="saveBtn">저장</button>
 	     	</div>
 	     	
 	     	
@@ -166,7 +166,7 @@
 			
 						  }else{
 						  alert("사용가능한 제목입니다");
-						  isDuplicate = false;
+						  isDuplicateSubject = false;
 							$("#duplicateDiv").addClass("d-none");
 							$("#noneDuplicateDiv").removeClass("d-none");
 						  }

@@ -41,7 +41,13 @@
 		
 		<h5 class=" interval">줄거리</h5>
 		<div>${post.content}</div>
-		<input class="btn btn-light btn-block mt-5 " type="button" value="댓글보기">
+		<input class="btn btn-secondary btn-block mt-5 d-none " type="button" value="댓글보기">
+		<input class="btn btn-secondary btn-block mt-5  " type="button" value="댓글숨기기">
+		<div class="d-flex mt-3 border-top">
+								<input type="text" class="form-control border-0 bin"
+									id="commentInput${postDetail.post.id }">
+								<button class="btn btn-info ml-2 commentBtn"
+									data-post-id="${postDetail.post.id }">게시</button>
 		</div>
 		
 		</section>
@@ -67,6 +73,35 @@
 			$("#imgBtn").on("click", function() {
 				// fileInput 클릭 효과
 				$("#fileInput").click();
+
+			});
+			
+			$(".commentBtn").on("click", function() {
+				// postId, content
+				let postId = $(this).data("post-id");
+				// "#commentInput5"
+				let content = $("#commentInput" + postId).val();
+
+				$.ajax({
+					type : "post",
+					url : "/post/comment/create",
+					data : {
+						"postId" : postId,
+						"content" : content
+					},
+					success : function(data) {
+						if (data.result == "success") {
+							location.reload();
+						} else {
+							alert("댓글 작성 실패");
+						}
+
+					},
+					error : function() {
+						alert("에러!!");
+					}
+
+				});
 
 			});
 

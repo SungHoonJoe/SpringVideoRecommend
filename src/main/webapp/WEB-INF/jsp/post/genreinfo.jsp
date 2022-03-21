@@ -22,7 +22,8 @@
 		<c:import url="/WEB-INF/jsp/include/header.jsp" />
 		<section class=" ">
 
-			<div class="display-4">검색결과</div>
+			
+			<h2 class=" mt-4">총 <label class=" text-primary">${count }</label>개의 작품이 검색되었습니다!</h2>
 			<div
 					class="d-flex  mt-3 changeline   ">
 					<c:forEach var="postDetail" items="${postList }" >

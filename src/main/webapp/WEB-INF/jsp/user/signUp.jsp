@@ -97,7 +97,7 @@
 					}
 							
 					// 중복이 되었는지 안되었는지?
-					if(isDuplicate == true) {
+					if(isDuplicateId == true) {
 						alert("아이디가 중복되었습니다.");
 						return ;
 					}

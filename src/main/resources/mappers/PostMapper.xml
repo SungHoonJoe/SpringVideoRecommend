@@ -120,10 +120,9 @@
 	
 	</select>
 	
-	<select id="searchGenreList" parameterType="String"  resultType="com.honftel.project.post.model.Post">
+	<select id="searchGenreList" parameterType="map"  resultType="com.honftel.project.post.model.Post">
 	   SELECT
-	        count(*) AS count
-	        ,`id`
+	        `id`
 	        ,`userId`
 			,`userName`
 			,`subject`
@@ -149,6 +148,20 @@
 	
 	</select>
 	
+	<select id="searchGenreCount" parameterType="map"  resultType="int">
+	   SELECT
+	        count(id) AS count
+      FROM 
+          `post`
+      WHERE 
+       
+	  <foreach collection="genre" item="genre" open="(" close=")" separator="AND"> `genre` 
+      LIKE concat('%',#{genre},'%') </foreach>
+
+  
+	
+	
+	</select>
 	
 	
 	

@@ -34,6 +34,8 @@ public interface PostDAO {
 	
 	public List<Post> searchGenreList(@Param("genre") List<String> genre);
 	
+	public int searchGenreCount(@Param("genre") List<String> genre);
+	
 	public List<Post> selectWeekList(@Param("broadcastdays") String broadcastdays);
 	
 	public List<Post> selectYearList();

@@ -1,5 +1,6 @@
 package com.honftel.project.post.bo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,8 @@ import org.springframework.web.multipart.MultipartFile;
 import com.honftel.project.common.FileManagerService;
 import com.honftel.project.post.dao.PostDAO;
 import com.honftel.project.post.model.Post;
+import com.honsta.project.post.comment.model.Comment;
+import com.honsta.project.post.model.PostDetail;
 
 
 
@@ -39,6 +42,29 @@ public class PostBO {
 		return postList;
 	}
 	
+	public List<PostDetail> getPostdetailList(int userId) {
+		// post 리스트 가져오기
+		// post 대응하는 댓글 좋아요 가져오기
+		// post 대응하는 댓글 좋아요 데이터 구조 만들기
+		List<Post> postList = postDAO.selectPostList();
+		List<PostDetail> postDetailList = new ArrayList<>();
+		
+		for(Post post:postList) {
+			// 해당하는  post id로 댓글 가져오기
+			List<Comment> commentList = commentBO.getCommentList(post.getId());
+		    int likeCount = likeBO.getLikeCount(post.getId());
+		    boolean isLike = likeBO.isLike(post.getId(), userId);
+			PostDetail postDetail = new PostDetail();
+			postDetail.setPost(post);
+			postDetail.setCommentList(commentList);
+			postDetail.setLikeCount(likeCount);
+			postDetail.setLike(isLike);
+			postDetailList.add(postDetail);
+			
+		}
+		return postDetailList;
+	}
+	
 	public List<Post> getScoreList() {
 		List<Post> postList = postDAO.selectScoreList();
 		
@@ -49,6 +75,12 @@ public class PostBO {
 		List<Post> postList = postDAO.searchGenreList(genre);
 		
 		return postList;
+	}
+	
+	public int getGenreSelectedCount(List<String> genre) {
+		 
+		
+		return postDAO.searchGenreCount(genre);
 	}
 	
 	

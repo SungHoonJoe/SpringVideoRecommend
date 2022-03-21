@@ -88,12 +88,12 @@ public class PostController {
 		
 		//List<PostDetail> postList = postBO.getPostList(userId);
 		List<Post> postList = postBO.getGenreSelectedList(genre);
-		
+		int count = postBO.getGenreSelectedCount(genre);
 		
 		
 		
 		model.addAttribute("postList",postList);
-		
+		model.addAttribute("count",count);
 		return "post/genreinfo";
 	}
 	
