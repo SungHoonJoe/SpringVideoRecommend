@@ -1,17 +1,21 @@
 package com.honftel.project.post.bo;
 
 import java.util.ArrayList;
+
+
 import java.util.List;
+import java.util.Objects;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.honftel.project.common.FileManagerService;
+import com.honftel.project.post.comment.bo.CommentBO;
+import com.honftel.project.post.comment.model.Comment;
 import com.honftel.project.post.dao.PostDAO;
 import com.honftel.project.post.model.Post;
-import com.honsta.project.post.comment.model.Comment;
-import com.honsta.project.post.model.PostDetail;
+import com.honftel.project.post.model.PostDetail;
 
 
 
@@ -22,6 +26,9 @@ public class PostBO {
 	
 	@Autowired
 	private PostDAO postDAO;
+	
+	@Autowired
+	private CommentBO commentBO;
 
 	public int addPost(int userId, String userName,String subject,String genre, String content,String broadcastdays,String releasedate,int year,double grade,String videoPath, MultipartFile file) {
 
@@ -42,7 +49,7 @@ public class PostBO {
 		return postList;
 	}
 	
-	public List<PostDetail> getPostdetailList(int userId) {
+	public List<PostDetail> getPostdetailList() {
 		// post 리스트 가져오기
 		// post 대응하는 댓글 좋아요 가져오기
 		// post 대응하는 댓글 좋아요 데이터 구조 만들기
@@ -52,13 +59,11 @@ public class PostBO {
 		for(Post post:postList) {
 			// 해당하는  post id로 댓글 가져오기
 			List<Comment> commentList = commentBO.getCommentList(post.getId());
-		    int likeCount = likeBO.getLikeCount(post.getId());
-		    boolean isLike = likeBO.isLike(post.getId(), userId);
+		    
 			PostDetail postDetail = new PostDetail();
 			postDetail.setPost(post);
 			postDetail.setCommentList(commentList);
-			postDetail.setLikeCount(likeCount);
-			postDetail.setLike(isLike);
+			
 			postDetailList.add(postDetail);
 			
 		}
@@ -126,6 +131,14 @@ public class PostBO {
 	public Post getPost(int postId) {
 		
 		return postDAO.selectPost(postId);
+	}
+	
+	public int deletePost(int postId, int userId) {
+
+		commentBO.deleteComment(postId);
+
+		// 포스트 삭제
+		return postDAO.deletePost(postId);
 	}
 
 }

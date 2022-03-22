@@ -2,6 +2,7 @@ package com.honftel.project.post.comment.bo;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +24,7 @@ public class CommentBO {
 		return commentDAO.selectCommentList(postId);
 	}
 	
-	public int deleteComment(int postId) {
+	public int deleteComment(int postId,int userId) {
 		return commentDAO.deleteComment(postId);
 	}
 

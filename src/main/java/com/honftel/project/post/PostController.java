@@ -1,6 +1,13 @@
 package com.honftel.project.post;
 
+
+
+
+
+
+
 import java.util.List;
+
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -14,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.honftel.project.post.bo.PostBO;
 import com.honftel.project.post.model.Post;
+import com.honftel.project.post.model.PostDetail;
 
 @Controller
 @RequestMapping("/post")
@@ -180,9 +188,11 @@ public class PostController {
 	@GetMapping("/detail_view")
 	public String detailView(@RequestParam("postId") int postId,Model model) {
 		//id 로 셀렉트
-		
 		Post post = postBO.getPost(postId);
+		
+		List<PostDetail> postList = postBO.getPostdetailList();
 		model.addAttribute("post", post);
+		model.addAttribute("postList", postList);
 		
 		
 		return "post/detailView";
