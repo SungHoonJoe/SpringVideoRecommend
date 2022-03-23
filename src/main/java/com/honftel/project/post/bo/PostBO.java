@@ -3,6 +3,7 @@ package com.honftel.project.post.bo;
 import java.util.ArrayList;
 
 
+
 import java.util.List;
 import java.util.Objects;
 
@@ -135,10 +136,10 @@ public class PostBO {
 	
 	public int deletePost(int postId, int userId) {
 
-		commentBO.deleteComment(postId);
+		
 
 		// 포스트 삭제
-		return postDAO.deletePost(postId);
+		return;
 	}
 
 }

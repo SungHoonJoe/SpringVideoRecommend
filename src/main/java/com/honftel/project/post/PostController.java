@@ -8,7 +8,6 @@ package com.honftel.project.post;
 
 import java.util.List;
 
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -20,8 +19,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.honftel.project.post.bo.PostBO;
+import com.honftel.project.post.comment.bo.CommentBO;
+import com.honftel.project.post.comment.model.Comment;
 import com.honftel.project.post.model.Post;
-import com.honftel.project.post.model.PostDetail;
 
 @Controller
 @RequestMapping("/post")
@@ -31,6 +31,10 @@ public class PostController {
 	
 	@Autowired
 	private PostBO postBO;
+	
+	@Autowired
+	private CommentBO commentBO;
+	
 	
 	@GetMapping("/homepage")
 	public String homepage(Model model,HttpServletRequest request) {
@@ -186,14 +190,17 @@ public class PostController {
 	}
 	
 	@GetMapping("/detail_view")
-	public String detailView(@RequestParam("postId") int postId,Model model) {
+	public String detailView(@RequestParam("postId") int postId,Model model,HttpServletRequest request) {
 		//id 로 셀렉트
+		
+		HttpSession session = request.getSession();
+		int userId  = (Integer) session.getAttribute("userId");
 		Post post = postBO.getPost(postId);
 		
-		List<PostDetail> postList = postBO.getPostdetailList();
+		List<Comment> comment = commentBO.getCommentList(postId);
 		model.addAttribute("post", post);
-		model.addAttribute("postList", postList);
-		
+		model.addAttribute("comment", comment);
+		model.addAttribute("commentwriter", userId);
 		
 		return "post/detailView";
 	}

@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.honftel.project.post.bo.PostBO;
+import com.honftel.project.post.comment.bo.CommentBO;
 
 
 
@@ -25,6 +26,9 @@ public class PostRestController {
 	
 	@Autowired
 	private PostBO postBO;
+	
+	@Autowired
+	private CommentBO commentBO;
 	
 	@PostMapping("/create")
 	public Map<String,String> create(
@@ -81,13 +85,17 @@ public class PostRestController {
 	}
 	
 	@GetMapping("/delete")
-	public Map<String,String> delete(@RequestParam("postId") int postId,HttpServletRequest request){
+	public Map<String,String> delete(@RequestParam("postId") int postId,@RequestParam("commentId") int commentId,@RequestParam("commentwriter") int commentwriter,HttpServletRequest request){
 		
-		
+		int count;
 		HttpSession session = request.getSession();
 		int userId = (Integer) session.getAttribute("userId");
-		int count = postBO.deletePost(postId,userId);
-		
+		if(userId == commentwriter)
+		{
+		 count = commentBO.deleteComment(postId, commentId, userId);
+		}else {
+		 count = 0;
+		}
 		Map<String,String> result = new HashMap<>();
 		
 		if(count == 1) {

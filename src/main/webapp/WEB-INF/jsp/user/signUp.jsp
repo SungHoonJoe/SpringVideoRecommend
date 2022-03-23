@@ -144,13 +144,13 @@
 						    isIdCheck = true;
 						  if(data.isDuplicate=="true"){
 						  alert("중복된 아이디입니다");
-						  isDuplicate = true;
+						  isDuplicateId = true;
 							$("#duplicateDiv").removeClass("d-none");
 							$("#noneDuplicateDiv").addClass("d-none");
 			
 						  }else{
 						  alert("사용가능한 아이디입니다");
-						  isDuplicate = false;
+						  isDuplicateId = false;
 							$("#duplicateDiv").addClass("d-none");
 							$("#noneDuplicateDiv").removeClass("d-none");
 						  }

@@ -45,28 +45,27 @@
 
 				<h5 class=" interval">줄거리</h5>
 				<div>${post.content}</div>
-				<input class="btn btn-secondary btn-block mt-5 d-none " type="button" value="댓글보기">
-				<input class="btn btn-secondary btn-block mt-5  " type="button" value="댓글숨기기">
+				<hr>
 				<div class="d-flex mt-3 border-top">
 					<input type="text" class="form-control border-0 bin" id="commentInput${post.id }">
 					<button class="btn btn-info ml-2 commentBtn" data-post-id="${post.id }">게시</button>
 
 				</div>
 		</section>
-		<c:forEach var="postDetail" items="${postList }">
+		
 		
 		<!--  댓글  -->
 		<div class=" middle-size m-2">
 
-			<c:forEach var="comment" items="${postDetail.commentList }">
+			<c:forEach var="comment" items="${comment }">
 				<div class="m-1 border rounded">
 				<div class="m-2 d-flex justify-content-between">
 					<div class="more-icon"><b>${comment.userName }</b></div>
-					<div>
+					<div class="d-flex more-icon">
 					<div class="more-icon"><fmt:formatDate value="${comment.createdAt }" pattern="yyyy-MM-dd HH:mm:ss" /></div>
 					<div class="more-icon">
-					<a class="text-dark moreBtn" data-post-id="${post.id }" data-comment-id="${comment.id }" href="#"> 
-					<i class="bi bi-x-lg" data-toggle="modal" data-target="#exampleModalCenter"></i>
+					<a class="text-dark moreBtn" data-post-id="${post.id }" data-comment-id="${comment.id }" data-user-id="${commentwriter}" href="#"> 
+					<i class="bi bi-x" data-toggle="modal" data-target="#exampleModalCenter"></i>
 					</a>
 					</div>
 					</div>		
@@ -77,7 +76,7 @@
 			</c:forEach>
 
 		</div>
-		</c:forEach>
+		
 		<c:import url="/WEB-INF/jsp/include/footer.jsp" />
 	</div>
 	
@@ -178,22 +177,34 @@
 				});
 
 			});
+			$(".moreBtn").on("click",function(e){
+				e.preventDefault();
+				let postId = $(this).data("post-id");
+				let commentId = $(this).data("comment-id");
+				let commentwriter = $(this).data("user-id");
+				
+				//postId 를 모달의 삭제하기 버튼에 값을 부여한다.
+				$("#deleteBtn").data("post-id",postId);
+				$("#deleteBtn").data("comment-id",commentId);
+				$("#deleteBtn").data("user-id",commentwriter);
+			});
 			
 			
 			$("#deleteBtn").on("click",function(e){
 				e.preventDefault();
 				let postId = $(this).data("post-id");
 				let commentId = $(this).data("comment-id");
+				let commentwriter = $(this).data("user-id");
 				
 				$.ajax({
 					type:"get",
 					url:"/post/delete",
-					data:{"postId":postId,"commentId":commentId},
+					data:{"postId":postId,"commentId":commentId,"commentwriter":commentwriter},
 					success:function(data) {
 						if(data.result == "success"){
 							location.reload();
 						}else{
-							alert("삭제 실패!");
+							alert("댓글을 작성한 본인이 아닙니다. 삭제 불가능합니다");
 						}
 					}, error:function() {
 						alert("삭제 에러!!");;

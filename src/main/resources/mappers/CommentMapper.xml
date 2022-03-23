@@ -46,7 +46,9 @@
 	   DELETE FROM
 	               `comment`
 	   WHERE
-	        `postId` = #{postId}
+	        `postId` = #{postId} AND
+	        `id` = #{commentId} AND
+	        `userId` = #{userId}
 	
 	
 	</delete>
