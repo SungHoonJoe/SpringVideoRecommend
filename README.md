@@ -32,7 +32,7 @@
   * UI 기획  
     https://ovenapp.io/project/wCXVG2LpDfFLgg9UcBxtUPMnadsiaBoF#BwTVn
     
-  * DB 설계, URL 설계  
+  * DB 설계, URL 설계, 일정 설계
     https://docs.google.com/spreadsheets/d/1YTJiWXEUCRHtiJtmK5Ky_JIq-XAAxvvODtVe0C92nB8/edit#gid=0 
  
  ### ⛏ 주요기능 ⛏
