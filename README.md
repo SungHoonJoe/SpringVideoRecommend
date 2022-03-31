@@ -68,7 +68,7 @@
 * Mybatis [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)
 * Bootstrap [MIT License](https://opensource.org/licenses/MIT)
 * jQuery [MIT License](https://opensource.org/licenses/MIT)
-* 이미지 출처 : [pixabay](https://pixabay.com/ko/)
+* 이미지 출처 : [laftel](https://laftel.net/) [google](https://www.google.com/)  
 
 ### 🎁 향후 계획
  * 조회수에 따른 추천기능 추가
