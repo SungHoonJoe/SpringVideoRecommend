@@ -53,7 +53,7 @@
    * package : [com.honftel.project.post.*](https://github.com/SungHoonJoe/SpringVideoRecommend/tree/master/src/main/java/com/honftel/project/post)
    * view : [/webapp/WEB-INF/jsp/post/*](https://github.com/SungHoonJoe/SpringVideoRecommend/blob/master/src/main/webapp/WEB-INF/jsp/post/yearsearch.jsp)
             [/webapp/WEB-INF/jsp/post/*](https://github.com/SungHoonJoe/SpringVideoRecommend/blob/master/src/main/webapp/WEB-INF/jsp/post/yearinfo.jsp)
-  * 검색창검색
+ * 검색창검색
    * package : [com.honftel.project.post.*](https://github.com/SungHoonJoe/SpringVideoRecommend/tree/master/src/main/java/com/honftel/project/post)
    * view : [/webapp/WEB-INF/jsp/post/*](https://github.com/SungHoonJoe/SpringVideoRecommend/blob/master/src/main/webapp/WEB-INF/jsp/post/searchinfo.jsp)
   
