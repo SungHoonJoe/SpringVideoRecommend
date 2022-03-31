@@ -22,6 +22,12 @@
  
  [포트폴리오](portfolio.pdf) 
  
+ ### 🔍 프로젝트
+ [프로젝트](http://13.125.250.132:8080/user/signin_view)
+ id: lamia
+ pw: 1234
+ 
+ 
  ### 🛠 설계 🛠
   * UI 기획  
     https://ovenapp.io/project/wCXVG2LpDfFLgg9UcBxtUPMnadsiaBoF#BwTVn
